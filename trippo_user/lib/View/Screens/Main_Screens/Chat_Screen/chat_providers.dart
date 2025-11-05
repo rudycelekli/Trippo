@@ -4,6 +4,7 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../services/ai_service_factory.dart';
 import '../../../../services/ai_providers/ai_provider_interface.dart';
+import '../../../../services/image_upload_service.dart';
 import '../../../../config/app_config.dart';
 import '../../../Widgets/service_request_dialog.dart';
 
@@ -155,15 +156,39 @@ What do you need help with today?''',
 
   /// Send image with message
   void sendImageMessage(String imagePath) async {
-    // TODO: Upload image to Firebase Storage
-    // For now, just send a placeholder message
-    final currentUser = ref.read(chatCurrentUserProvider);
-    final message = ChatMessage(
-      user: currentUser,
-      text: '[Image uploaded - awaiting analysis...]',
-      createdAt: DateTime.now(),
-    );
-    sendMessage(message);
+    try {
+      // Upload image to Firebase Storage
+      final ImageUploadService uploadService = ImageUploadService();
+      final downloadUrl = await uploadService.uploadChatImage(imagePath);
+
+      // Send message with image
+      final currentUser = ref.read(chatCurrentUserProvider);
+      final message = ChatMessage(
+        user: currentUser,
+        text: '📷 [Analyzing image...]',
+        createdAt: DateTime.now(),
+        medias: [
+          ChatMedia(
+            url: downloadUrl,
+            fileName: 'image',
+            type: MediaType.image,
+          ),
+        ],
+      );
+
+      sendMessage(message);
+
+      // TODO: Send image URL to AI for analysis
+    } catch (e) {
+      // Show error
+      final aiUser = ref.read(chatAIUserProvider);
+      final errorMessage = ChatMessage(
+        user: aiUser,
+        text: 'Sorry, I couldn\'t process that image. Please try again.',
+        createdAt: DateTime.now(),
+      );
+      state = [errorMessage, ...state];
+    }
   }
 
   /// Clear all chat history
