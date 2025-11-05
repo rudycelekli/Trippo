@@ -1,5 +1,5 @@
-name: trippo_user
-description: A new Flutter project.
+name: homzy_user
+description: Homzy - Your AI for anything home care.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -31,25 +31,63 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # Core
   cupertino_icons: ^1.0.2
+
+  # State Management & Routing
+  flutter_riverpod: ^2.3.6
   go_router: ^9.1.0
+
+  # Firebase
+  firebase_core: ^2.15.0
   firebase_auth: ^4.7.1
   cloud_firestore: ^4.8.3
-  flutter_riverpod: ^2.3.6
+  firebase_messaging: ^14.6.7
+  firebase_storage: ^11.2.5
+
+  # Location & Maps (for provider tracking)
   geolocator: ^10.0.0
   google_maps_flutter: ^2.3.1
-  firebase_core: ^2.15.0
-  elegant_notification: ^1.10.1
-  dio: ^5.3.2
   geocoder2: ^1.4.0
   flutter_polyline_points: ^1.0.0
   geoflutterfire2: ^2.3.15
-  lottie: ^2.6.0
-  firebase_messaging: ^14.6.7
+
+  # AI Chat UI
+  dash_chat_2: ^0.0.18
+  flutter_markdown: ^0.6.18
+
+  # Image Handling
+  image_picker: ^1.0.4
+  cached_network_image: ^3.3.0
+
+  # HTTP & API
+  dio: ^5.3.2
+  http: ^1.1.0
+
+  # Calendar
+  table_calendar: ^3.0.9
+  google_sign_in: ^6.1.5
+  googleapis: ^11.4.0
+  googleapis_auth: ^1.4.1
+
+  # Payments
+  flutter_stripe: ^10.1.1
+  pay: ^1.1.2  # Apple Pay & Google Pay
+
+  # Notifications
   flutter_local_notifications: ^15.1.1
+  elegant_notification: ^1.10.1
+
+  # UI & Animations
+  lottie: ^2.6.0
+  shimmer: ^3.0.0
+  flutter_slidable: ^3.0.0
+
+  # Utilities
+  intl: ^0.18.1
+  uuid: ^4.2.1
+  flutter_dotenv: ^5.1.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +117,7 @@ flutter:
   assets:
     - assets/imgs/
     - assets/jsons/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
