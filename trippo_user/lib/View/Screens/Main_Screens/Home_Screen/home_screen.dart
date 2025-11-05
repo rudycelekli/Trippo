@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:trippo_user/Container/utils/firebase_messaging.dart';
-import 'package:trippo_user/Container/utils/set_blackmap.dart';
-import 'package:trippo_user/View/Routes/routes.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
+import 'package:homzy_user/Container/utils/firebase_messaging.dart';
+import 'package:homzy_user/Container/utils/set_blackmap.dart';
+import 'package:homzy_user/View/Routes/routes.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});

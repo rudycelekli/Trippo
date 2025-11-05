@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:trippo_user/View/Routes/routes.dart';
-import 'package:trippo_user/View/Screens/Auth_Screens/Login_Screen/login_screen.dart';
-import 'package:trippo_user/View/Screens/Auth_Screens/Register_Screen/register_screen.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Home_Screen/home_screen.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_screen.dart';
+import 'package:homzy_user/View/Routes/routes.dart';
+import 'package:homzy_user/View/Screens/Auth_Screens/Login_Screen/login_screen.dart';
+import 'package:homzy_user/View/Screens/Auth_Screens/Register_Screen/register_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Chat_Screen/chat_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Service_Dashboard/service_dashboard_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Tracking_Map/tracking_map_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_screen.dart';
 
-import 'package:trippo_user/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
+import 'package:homzy_user/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -51,6 +54,16 @@ final List<RouteBase> allRoutes =[
         return const RegisterScreen();
       },
     ),
+    // Main Routes - Chat is now the primary home screen
+    GoRoute(
+      name: Routes().chat,
+      path: '/${Routes().chat}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ChatScreen();
+      },
+    ),
+
+    // Legacy home route (map-based) - kept for backwards compatibility
     GoRoute(
       name: Routes().home,
       path: '/${Routes().home}',
@@ -59,8 +72,23 @@ final List<RouteBase> allRoutes =[
       },
     ),
 
-    // Main Routes
+    // Service Management Routes
+    GoRoute(
+      name: Routes().serviceDashboard,
+      path: '/${Routes().serviceDashboard}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ServiceDashboardScreen();
+      },
+    ),
 
+    GoRoute(
+      name: Routes().trackingMap,
+      path: '/${Routes().trackingMap}',
+      builder: (BuildContext context, GoRouterState state) {
+        final requestId = state.extra as String;
+        return TrackingMapScreen(serviceRequestId: requestId);
+      },
+    ),
 
   // Main Sub Routes
  GoRoute(

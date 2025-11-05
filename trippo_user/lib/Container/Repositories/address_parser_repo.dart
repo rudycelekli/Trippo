@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:trippo_user/Container/utils/keys.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
+import 'package:homzy_user/Container/utils/keys.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
 import '../../Model/direction_model.dart';
 import '../utils/error_notification.dart';
 

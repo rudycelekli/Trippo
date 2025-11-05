@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:trippo_user/Container/utils/keys.dart';
-import 'package:trippo_user/Model/predicted_places.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_providers.dart';
+import 'package:homzy_user/Container/utils/keys.dart';
+import 'package:homzy_user/Model/predicted_places.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_providers.dart';
 import '../utils/error_notification.dart';
 
 /// [predictedPlacesRepoProvider] used to cache the [PredictedPlacesRepo] class to prevent it from creating multiple instances

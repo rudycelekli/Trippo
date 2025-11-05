@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_user/Container/Repositories/firestore_repo.dart';
-import 'package:trippo_user/Container/utils/error_notification.dart';
+import 'package:homzy_user/Container/Repositories/firestore_repo.dart';
+import 'package:homzy_user/Container/utils/error_notification.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class MessagingService {

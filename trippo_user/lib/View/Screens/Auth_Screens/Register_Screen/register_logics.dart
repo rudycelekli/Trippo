@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:trippo_user/Container/Repositories/auth_repo.dart';
-import 'package:trippo_user/Container/utils/error_notification.dart';
-import 'package:trippo_user/View/Screens/Auth_Screens/Register_Screen/register_providers.dart';
+import 'package:homzy_user/Container/Repositories/auth_repo.dart';
+import 'package:homzy_user/Container/utils/error_notification.dart';
+import 'package:homzy_user/View/Screens/Auth_Screens/Register_Screen/register_providers.dart';
 
 class RegisterLogics{
     void registerUser(

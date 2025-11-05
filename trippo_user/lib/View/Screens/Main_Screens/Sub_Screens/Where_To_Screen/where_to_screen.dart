@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:trippo_user/Container/Repositories/predicted_places_repo.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_logics.dart';
+import 'package:homzy_user/Container/Repositories/predicted_places_repo.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_logics.dart';
 
 import 'where_to_providers.dart';
 

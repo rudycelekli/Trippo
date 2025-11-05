@@ -8,14 +8,14 @@ import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:lottie/lottie.dart' as lottie;
-import 'package:trippo_user/Container/Repositories/address_parser_repo.dart';
-import 'package:trippo_user/Container/Repositories/direction_polylines_repo.dart';
-import 'package:trippo_user/Container/Repositories/firestore_repo.dart';
-import 'package:trippo_user/Container/utils/error_notification.dart';
-import 'package:trippo_user/Container/utils/keys.dart';
-import 'package:trippo_user/Model/direction_model.dart';
-import 'package:trippo_user/View/Components/all_components.dart';
-import 'package:trippo_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
+import 'package:homzy_user/Container/Repositories/address_parser_repo.dart';
+import 'package:homzy_user/Container/Repositories/direction_polylines_repo.dart';
+import 'package:homzy_user/Container/Repositories/firestore_repo.dart';
+import 'package:homzy_user/Container/utils/error_notification.dart';
+import 'package:homzy_user/Container/utils/keys.dart';
+import 'package:homzy_user/Model/direction_model.dart';
+import 'package:homzy_user/View/Components/all_components.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
 import 'package:dio/dio.dart';
 
 class HomeScreenLogics {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_user/View/Components/all_components.dart';
-import 'package:trippo_user/View/Screens/Auth_Screens/Login_Screen/login_logics.dart';
-import 'package:trippo_user/View/Screens/Auth_Screens/Login_Screen/login_providers.dart';
+import 'package:homzy_user/View/Components/all_components.dart';
+import 'package:homzy_user/View/Screens/Auth_Screens/Login_Screen/login_logics.dart';
+import 'package:homzy_user/View/Screens/Auth_Screens/Login_Screen/login_providers.dart';
 import '../../../Routes/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
