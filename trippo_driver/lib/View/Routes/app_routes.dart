@@ -11,6 +11,8 @@ import 'package:homzy_provider/View/Screens/Main_Screens/Job_Detail/job_detail_s
 import 'package:homzy_provider/View/Screens/Main_Screens/Active_Job/active_job_screen.dart';
 import 'package:homzy_provider/View/Screens/Main_Screens/Quote/quote_builder_screen.dart';
 import 'package:homzy_provider/View/Screens/Main_Screens/Earnings/provider_earnings_screen.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Settings/settings_screen.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Availability/availability_screen.dart';
 
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -104,6 +106,20 @@ final List<RouteBase> allRoutes =[
       path: '/${Routes().providerEarnings}',
       builder: (BuildContext context, GoRouterState state) {
         return const ProviderEarningsScreen();
+      },
+    ),
+    GoRoute(
+      name: Routes().settings,
+      path: '/${Routes().settings}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SettingsScreen();
+      },
+    ),
+    GoRoute(
+      name: Routes().availability,
+      path: '/${Routes().availability}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const AvailabilityScreen();
       },
     ),
   ];
