@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'chat_providers.dart';
 import 'package:go_router/go_router.dart';
 import '../../../Routes/routes.dart';
+import '../../../Widgets/service_request_dialog.dart';
 
 /// Homzy AI Chat Screen
 /// Main interface where users interact with the AI assistant
@@ -34,6 +35,25 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
     final currentUser = ref.watch(chatCurrentUserProvider);
     final homzyAI = ref.watch(chatAIUserProvider);
     final isTyping = ref.watch(chatIsTypingProvider);
+
+    // Watch for pending service detection
+    ref.listen(pendingServiceDetectionProvider, (previous, next) {
+      if (next != null) {
+        // Show service request dialog
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => ServiceRequestDialog(
+            detection: next,
+            imageUrls: [], // TODO: Pass uploaded images
+            userMessage: messages.isNotEmpty ? messages.first.text : '',
+          ),
+        ).then((_) {
+          // Clear the detection after dialog is dismissed
+          ref.read(pendingServiceDetectionProvider.notifier).state = null;
+        });
+      }
+    });
 
     return Scaffold(
       backgroundColor: const Color(0xFF121212),

@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../services/ai_service_factory.dart';
 import '../../../../services/ai_providers/ai_provider_interface.dart';
 import '../../../../config/app_config.dart';
+import '../../../Widgets/service_request_dialog.dart';
 
 /// Chat Providers for Homzy AI Chat
 
@@ -172,10 +174,12 @@ What do you need help with today?''',
 
   /// Show service request dialog when AI detects a service need
   void _showServiceRequestDialog(ServiceCategoryDetection detection) {
-    // TODO: Show dialog to confirm service request
-    // Options: On-demand or Schedule for later
-    print('Service detected: ${detection.category.displayName}');
-    print('Confidence: ${detection.confidence}');
-    print('Reasoning: ${detection.reasoning}');
+    // This will be called from the UI layer, so context will be available
+    // Store the detection for the UI to pick up
+    ref.read(pendingServiceDetectionProvider.notifier).state = detection;
   }
 }
+
+// Provider for pending service detection
+final pendingServiceDetectionProvider =
+    StateProvider<ServiceCategoryDetection?>((ref) => null);

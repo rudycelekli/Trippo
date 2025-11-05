@@ -8,6 +8,7 @@ import 'package:homzy_user/View/Screens/Main_Screens/Home_Screen/home_screen.dar
 import 'package:homzy_user/View/Screens/Main_Screens/Chat_Screen/chat_screen.dart';
 import 'package:homzy_user/View/Screens/Main_Screens/Service_Dashboard/service_dashboard_screen.dart';
 import 'package:homzy_user/View/Screens/Main_Screens/Tracking_Map/tracking_map_screen.dart';
+import 'package:homzy_user/View/Screens/Main_Screens/Quote_Approval/quote_approval_screen.dart';
 import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_screen.dart';
 
 import 'package:homzy_user/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
@@ -87,6 +88,15 @@ final List<RouteBase> allRoutes =[
       builder: (BuildContext context, GoRouterState state) {
         final requestId = state.extra as String;
         return TrackingMapScreen(serviceRequestId: requestId);
+      },
+    ),
+
+    GoRoute(
+      name: Routes().quoteApproval,
+      path: '/${Routes().quoteApproval}',
+      builder: (BuildContext context, GoRouterState state) {
+        final requestId = state.extra as String;
+        return QuoteApprovalScreen(serviceRequestId: requestId);
       },
     ),
 
