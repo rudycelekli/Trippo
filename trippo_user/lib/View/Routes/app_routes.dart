@@ -13,6 +13,7 @@ import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen
 import 'package:homzy_user/View/Screens/Admin_Screens/Admin_Dashboard/admin_dashboard_screen.dart';
 import 'package:homzy_user/View/Screens/Admin_Screens/Provider_Applications/provider_applications_screen.dart';
 import 'package:homzy_user/View/Screens/Admin_Screens/Provider_Applications/application_detail_screen.dart';
+import 'package:homzy_user/View/Screens/Admin_Screens/Admin_Settings/admin_settings_screen.dart';
 
 import 'package:homzy_user/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
 
@@ -138,6 +139,14 @@ final List<RouteBase> allRoutes =[
       builder: (BuildContext context, GoRouterState state) {
         final applicationId = state.extra as String;
         return ApplicationDetailScreen(applicationId: applicationId);
+      },
+    ),
+
+    GoRoute(
+      name: Routes().adminSettings,
+      path: '/${Routes().adminSettings}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const AdminSettingsScreen();
       },
     ),
 
