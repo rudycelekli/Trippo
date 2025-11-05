@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'ai_provider_interface.dart';
 import '../../Model/service_category_model.dart';
@@ -244,13 +245,110 @@ Respond with a JSON object containing:
   }
 
   ServiceCategory? _extractServiceCategory(String text) {
-    // Similar keyword extraction
-    return null;
+    final lowerText = text.toLowerCase();
+
+    // Map keywords to service categories
+    final Map<String, ServiceCategory> categoryKeywords = {
+      'plumb': ServiceCategory.plumbing,
+      'leak': ServiceCategory.plumbing,
+      'pipe': ServiceCategory.plumbing,
+      'faucet': ServiceCategory.plumbing,
+      'drain': ServiceCategory.plumbing,
+      'toilet': ServiceCategory.plumbing,
+      'sink': ServiceCategory.plumbing,
+      'electric': ServiceCategory.electrical,
+      'wire': ServiceCategory.electrical,
+      'wiring': ServiceCategory.electrical,
+      'outlet': ServiceCategory.electrical,
+      'switch': ServiceCategory.electrical,
+      'light': ServiceCategory.electrical,
+      'breaker': ServiceCategory.electrical,
+      'clean': ServiceCategory.cleaning,
+      'dust': ServiceCategory.cleaning,
+      'vacuum': ServiceCategory.cleaning,
+      'mop': ServiceCategory.cleaning,
+      'hvac': ServiceCategory.hvac,
+      'heat': ServiceCategory.hvac,
+      'air condition': ServiceCategory.hvac,
+      'furnace': ServiceCategory.hvac,
+      'thermostat': ServiceCategory.hvac,
+      'lawn': ServiceCategory.lawnCare,
+      'grass': ServiceCategory.lawnCare,
+      'mow': ServiceCategory.lawnCare,
+      'garden': ServiceCategory.lawnCare,
+      'landscape': ServiceCategory.lawnCare,
+      'paint': ServiceCategory.painting,
+      'wall': ServiceCategory.painting,
+      'ceiling': ServiceCategory.painting,
+      'carpenter': ServiceCategory.carpentry,
+      'wood': ServiceCategory.carpentry,
+      'cabinet': ServiceCategory.carpentry,
+      'appliance': ServiceCategory.applianceRepair,
+      'refrigerator': ServiceCategory.applianceRepair,
+      'dishwasher': ServiceCategory.applianceRepair,
+      'washer': ServiceCategory.applianceRepair,
+      'dryer': ServiceCategory.applianceRepair,
+      'pest': ServiceCategory.pestControl,
+      'bug': ServiceCategory.pestControl,
+      'insect': ServiceCategory.pestControl,
+      'rodent': ServiceCategory.pestControl,
+      'termite': ServiceCategory.pestControl,
+      'lock': ServiceCategory.locksmith,
+      'key': ServiceCategory.locksmith,
+      'door lock': ServiceCategory.locksmith,
+      'roof': ServiceCategory.roofing,
+      'shingle': ServiceCategory.roofing,
+      'gutter': ServiceCategory.roofing,
+      'floor': ServiceCategory.flooring,
+      'tile': ServiceCategory.flooring,
+      'carpet': ServiceCategory.flooring,
+      'hardwood': ServiceCategory.flooring,
+      'window': ServiceCategory.windowCleaning,
+      'garage door': ServiceCategory.garageDoorRepair,
+      'pool': ServiceCategory.poolMaintenance,
+      'move': ServiceCategory.moving,
+      'relocat': ServiceCategory.moving,
+      'pressure wash': ServiceCategory.pressureWashing,
+      'power wash': ServiceCategory.pressureWashing,
+      'organize': ServiceCategory.homeOrganization,
+      'declutter': ServiceCategory.homeOrganization,
+    };
+
+    // Find first matching keyword
+    for (final entry in categoryKeywords.entries) {
+      if (lowerText.contains(entry.key)) {
+        return entry.value;
+      }
+    }
+
+    // Default to handyman if no specific category found
+    return ServiceCategory.handyman;
   }
 
   List<String> _extractRecommendations(String text) {
-    // Extract bullet points or numbered lists
-    return [text];
+    final recommendations = <String>[];
+    final lines = text.split('\n');
+
+    for (final line in lines) {
+      final trimmed = line.trim();
+      // Match bullet points (-, *, •) and numbered lists (1., 2., etc.)
+      if (trimmed.startsWith('-') ||
+          trimmed.startsWith('*') ||
+          trimmed.startsWith('•') ||
+          RegExp(r'^\d+\.').hasMatch(trimmed)) {
+        // Remove the bullet/number prefix
+        final cleaned = trimmed
+            .replaceFirst(RegExp(r'^[-*•]'), '')
+            .replaceFirst(RegExp(r'^\d+\.'), '')
+            .trim();
+        if (cleaned.isNotEmpty) {
+          recommendations.add(cleaned);
+        }
+      }
+    }
+
+    // If no bullet points found, return the entire text as one recommendation
+    return recommendations.isEmpty ? [text] : recommendations;
   }
 
   ServiceCategoryDetection _parseDetectionResult(String jsonString) {
@@ -279,8 +377,12 @@ Respond with a JSON object containing:
   }
 
   Map<String, dynamic> _parseJson(String jsonString) {
-    // Simple JSON parsing - in production use dart:convert
-    return {};
+    try {
+      return json.decode(jsonString) as Map<String, dynamic>;
+    } catch (e) {
+      // If JSON parsing fails, return empty map
+      return {};
+    }
   }
 }
 
