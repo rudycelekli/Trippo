@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_driver/Container/utils/error_notification.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
+import 'package:homzy_provider/Container/utils/error_notification.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
 
 
 class MessagingService {

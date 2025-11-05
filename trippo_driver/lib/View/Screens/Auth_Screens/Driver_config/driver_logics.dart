@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_driver/Container/Repositories/firestore_repo.dart';
-import 'package:trippo_driver/Container/utils/error_notification.dart';
-import 'package:trippo_driver/View/Routes/routes.dart';
-import 'package:trippo_driver/View/Screens/Auth_Screens/Driver_config/driver_providers.dart';
+import 'package:homzy_provider/Container/Repositories/firestore_repo.dart';
+import 'package:homzy_provider/Container/utils/error_notification.dart';
+import 'package:homzy_provider/View/Routes/routes.dart';
+import 'package:homzy_provider/View/Screens/Auth_Screens/Driver_config/driver_providers.dart';
 
 class DriverLogics{
    void sendDataToFirestore(BuildContext context ,ref , TextEditingController carNameController ,TextEditingController plateNumController ) async {

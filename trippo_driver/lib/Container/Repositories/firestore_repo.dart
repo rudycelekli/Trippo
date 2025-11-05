@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geoflutterfire2/geoflutterfire2.dart';
-import 'package:trippo_driver/Model/driver_info_model.dart';
+import 'package:homzy_provider/Model/driver_info_model.dart';
 
 import '../utils/error_notification.dart';
 

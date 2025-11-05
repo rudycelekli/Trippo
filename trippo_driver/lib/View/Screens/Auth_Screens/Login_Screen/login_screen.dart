@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_driver/View/Components/all_components.dart';
+import 'package:homzy_provider/View/Components/all_components.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:trippo_driver/View/Routes/routes.dart';
-import 'package:trippo_driver/View/Screens/Auth_Screens/Login_Screen/login_logics.dart';
-import 'package:trippo_driver/View/Screens/Auth_Screens/Login_Screen/login_providers.dart';
+import 'package:homzy_provider/View/Routes/routes.dart';
+import 'package:homzy_provider/View/Screens/Auth_Screens/Login_Screen/login_logics.dart';
+import 'package:homzy_provider/View/Screens/Auth_Screens/Login_Screen/login_providers.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

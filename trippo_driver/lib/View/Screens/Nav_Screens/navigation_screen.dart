@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/History_Screen/history_screen.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Home_Screen/home_screen.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Payment_Screen/payment_screen.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Profile_Screen/profile_screen.dart';
-import 'package:trippo_driver/View/Screens/Nav_Screens/navigation_providers.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/History_Screen/history_screen.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Home_Screen/home_screen.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Payment_Screen/payment_screen.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Profile_Screen/profile_screen.dart';
+import 'package:homzy_provider/View/Screens/Nav_Screens/navigation_providers.dart';
 
 
 

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
-import 'package:trippo_driver/Container/utils/error_notification.dart';
-import 'package:trippo_driver/View/Routes/routes.dart';
+import 'package:homzy_provider/Container/utils/error_notification.dart';
+import 'package:homzy_provider/View/Routes/routes.dart';
 
 class SplashLogics{
   final FirebaseAuth _auth = FirebaseAuth.instance;

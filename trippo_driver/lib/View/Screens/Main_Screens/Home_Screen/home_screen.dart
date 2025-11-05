@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:trippo_driver/Container/Repositories/firestore_repo.dart';
-import 'package:trippo_driver/Container/utils/firebase_messaging.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
-import 'package:trippo_driver/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
+import 'package:homzy_provider/Container/Repositories/firestore_repo.dart';
+import 'package:homzy_provider/Container/utils/firebase_messaging.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Home_Screen/home_logics.dart';
+import 'package:homzy_provider/View/Screens/Main_Screens/Home_Screen/home_providers.dart';
 import '../../../../Container/utils/set_blackmap.dart';
 import 'package:geoflutterfire2/geoflutterfire2.dart';
 
