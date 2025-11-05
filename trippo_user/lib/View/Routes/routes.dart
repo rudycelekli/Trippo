@@ -16,6 +16,14 @@ class Routes {
   final String quoteApproval = "quoteApproval";
   final String milestoneConfirmation = "milestoneConfirmation";
 
+  // Admin Routes
+  final String adminDashboard = "adminDashboard";
+  final String adminApplications = "adminApplications";
+  final String adminApplicationDetail = "adminApplicationDetail";
+  final String adminSettings = "adminSettings";
+  final String adminUsers = "adminUsers";
+  final String adminServices = "adminServices";
+
   // Main Sub Routes (Legacy - can be removed later)
   final String whereTo = "whereTo";
 }

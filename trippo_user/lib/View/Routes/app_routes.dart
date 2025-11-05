@@ -10,6 +10,9 @@ import 'package:homzy_user/View/Screens/Main_Screens/Service_Dashboard/service_d
 import 'package:homzy_user/View/Screens/Main_Screens/Tracking_Map/tracking_map_screen.dart';
 import 'package:homzy_user/View/Screens/Main_Screens/Quote_Approval/quote_approval_screen.dart';
 import 'package:homzy_user/View/Screens/Main_Screens/Sub_Screens/Where_To_Screen/where_to_screen.dart';
+import 'package:homzy_user/View/Screens/Admin_Screens/Admin_Dashboard/admin_dashboard_screen.dart';
+import 'package:homzy_user/View/Screens/Admin_Screens/Provider_Applications/provider_applications_screen.dart';
+import 'package:homzy_user/View/Screens/Admin_Screens/Provider_Applications/application_detail_screen.dart';
 
 import 'package:homzy_user/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
 
@@ -109,6 +112,32 @@ final List<RouteBase> allRoutes =[
       builder: (BuildContext context, GoRouterState state) {
 
         return  WhereToScreen( controller:state.extra as GoogleMapController ,);
+      },
+    ),
+
+    // Admin Routes
+    GoRoute(
+      name: Routes().adminDashboard,
+      path: '/${Routes().adminDashboard}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const AdminDashboardScreen();
+      },
+    ),
+
+    GoRoute(
+      name: Routes().adminApplications,
+      path: '/${Routes().adminApplications}',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ProviderApplicationsScreen();
+      },
+    ),
+
+    GoRoute(
+      name: Routes().adminApplicationDetail,
+      path: '/${Routes().adminApplicationDetail}',
+      builder: (BuildContext context, GoRouterState state) {
+        final applicationId = state.extra as String;
+        return ApplicationDetailScreen(applicationId: applicationId);
       },
     ),
 
