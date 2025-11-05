@@ -114,6 +114,11 @@ class AppConfigRepository {
       googleCalendarClientId: dotenv.env['GOOGLE_CALENDAR_CLIENT_ID'] ?? '',
       googleCalendarClientSecret:
           dotenv.env['GOOGLE_CALENDAR_CLIENT_SECRET'] ?? '',
+
+      // Background Check Settings
+      checkrApiKey: dotenv.env['CHECKR_API_KEY'] ?? '',
+      backgroundCheckRequired:
+          dotenv.env['BACKGROUND_CHECK_REQUIRED']?.toLowerCase() == 'true',
     );
   }
 

@@ -30,6 +30,10 @@ class AppConfig {
   final String googleCalendarClientId;
   final String googleCalendarClientSecret;
 
+  // Background Check Settings
+  final String checkrApiKey;
+  final bool backgroundCheckRequired;
+
   const AppConfig({
     required this.openAiApiKey,
     required this.claudeApiKey,
@@ -46,6 +50,8 @@ class AppConfig {
     required this.paypalSecret,
     required this.googleCalendarClientId,
     required this.googleCalendarClientSecret,
+    required this.checkrApiKey,
+    this.backgroundCheckRequired = true,
   });
 
   factory AppConfig.fromFirestore(Map<String, dynamic> data) {
@@ -71,6 +77,8 @@ class AppConfig {
       paypalSecret: data['paypalSecret'] ?? '',
       googleCalendarClientId: data['googleCalendarClientId'] ?? '',
       googleCalendarClientSecret: data['googleCalendarClientSecret'] ?? '',
+      checkrApiKey: data['checkrApiKey'] ?? '',
+      backgroundCheckRequired: data['backgroundCheckRequired'] ?? true,
     );
   }
 
@@ -91,6 +99,8 @@ class AppConfig {
       'paypalSecret': paypalSecret,
       'googleCalendarClientId': googleCalendarClientId,
       'googleCalendarClientSecret': googleCalendarClientSecret,
+      'checkrApiKey': checkrApiKey,
+      'backgroundCheckRequired': backgroundCheckRequired,
     };
   }
 
@@ -110,6 +120,8 @@ class AppConfig {
     String? paypalSecret,
     String? googleCalendarClientId,
     String? googleCalendarClientSecret,
+    String? checkrApiKey,
+    bool? backgroundCheckRequired,
   }) {
     return AppConfig(
       openAiApiKey: openAiApiKey ?? this.openAiApiKey,
@@ -127,6 +139,8 @@ class AppConfig {
       paypalSecret: paypalSecret ?? this.paypalSecret,
       googleCalendarClientId: googleCalendarClientId ?? this.googleCalendarClientId,
       googleCalendarClientSecret: googleCalendarClientSecret ?? this.googleCalendarClientSecret,
+      checkrApiKey: checkrApiKey ?? this.checkrApiKey,
+      backgroundCheckRequired: backgroundCheckRequired ?? this.backgroundCheckRequired,
     );
   }
 }
