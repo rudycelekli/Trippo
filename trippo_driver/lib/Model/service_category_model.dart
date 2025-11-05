@@ -236,6 +236,7 @@ class ServiceRequest {
   final ServiceRequestStatus status;
   final String? assignedProviderId;
   final String? assignedProviderName;
+  final String? quoteId;
   final double? estimatedCost;
   final double? finalCost;
   final DateTime createdAt;
@@ -258,6 +259,7 @@ class ServiceRequest {
     required this.status,
     this.assignedProviderId,
     this.assignedProviderName,
+    this.quoteId,
     this.estimatedCost,
     this.finalCost,
     required this.createdAt,
@@ -293,6 +295,7 @@ class ServiceRequest {
       ),
       assignedProviderId: data['assignedProviderId'],
       assignedProviderName: data['assignedProviderName'],
+      quoteId: data['quoteId'],
       estimatedCost: data['estimatedCost']?.toDouble(),
       finalCost: data['finalCost']?.toDouble(),
       createdAt: DateTime.parse(data['createdAt']),
@@ -317,6 +320,7 @@ class ServiceRequest {
       'status': status.name,
       'assignedProviderId': assignedProviderId,
       'assignedProviderName': assignedProviderName,
+      'quoteId': quoteId,
       'estimatedCost': estimatedCost,
       'finalCost': finalCost,
       'createdAt': createdAt.toIso8601String(),
